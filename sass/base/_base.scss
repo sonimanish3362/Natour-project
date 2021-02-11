@@ -1,0 +1,47 @@
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+html{
+    //this define what is 1rem is default 16 px
+    font-size: 62.5%; // 1 rem = 10px  10px/16px = 62.5%
+
+   /* @include respond(phone) { this has the same font size as (tab-port) so we dont need to write 
+        font-size: 50%;                    in two diferent breakpoint beacuse the 900 px is also less
+                                            then 600 px 
+    }*/
+
+    
+    @include respond(tab-land) {  //width < 1200?
+        font-size: 56.25%;     // 1 rem = 9px   9px/16px = 56.25 %
+    }
+
+    @include respond(tab-port) {  //width < 900 ?
+        font-size: 50%;   // 1 rem = 8px   8px/16px = 50 %
+    }
+
+   /* @include respond(phone) {  //width < 900 ?
+        font-size: 30%;   // 1 rem = 4.8px   4.8px/16px = 30 %
+    }*/
+    @include respond(big-desktop) {  // 1 rem = 12px   12px/16px = 75 %
+        font-size: 75%;
+    }
+}
+body{
+    box-sizing: border-box;
+    padding: 3rem;
+ 
+    @include respond(tab-port) {  
+       padding: 0;
+    }
+    
+}
+
+::selection {
+    background-color:$color-secoundary-light;
+    color:black;
+
+}
